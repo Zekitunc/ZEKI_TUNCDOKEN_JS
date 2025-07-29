@@ -79,7 +79,7 @@
           top: 35%;
           transform: translateY(-50%);
           z-index: 2;
-          background-color: rgba(175, 115, 5, 0.2);
+          background-color: rgba(175, 115, 5, 0.05);
           border: black;
           border-radius: 50%;
           width: 40px;
@@ -101,9 +101,9 @@
         }
         .product-card {
           position: relative;
-          width: 255px;
+          width: 260px;
           height: 54vh;
-          border: 8px solid white;
+          border: 4px solid white;
           border-radius: 12px;
           padding: 10px;
           background: #fff;
@@ -208,7 +208,7 @@
           background-color:orange;
         }
         .carousel-title {
-          background-color: rgba(248, 180, 53, 0.04);
+          background-color: rgba(248, 180, 53, 0.05);
           border: 1px solid gray;
           border-top-left-radius:40px;
           border-top-right-radius:40px;
@@ -304,6 +304,8 @@
               const discountLogo = document.createElement('img');
               discountLogo.className = 'discount-logo';
               discountLogo.src = 'https://cdn2.iconfinder.com/data/icons/e-business-helper/240/627222-sale2-512.png';
+              
+              price.style.cssText += " color:green;"
 
               oldpriceDiv.appendChild(oldprice);
               oldpriceDiv.appendChild(discount);
@@ -330,14 +332,14 @@
           leftBtn.className = 'carousel-nav left';
           leftBtn.innerHTML = '<';
           leftBtn.onclick = () => {
-            wrapper.scrollBy({ left: -315, behavior: 'smooth' });
+            wrapper.scrollBy({ left: -320, behavior: 'smooth' });
           };
 
           const rightBtn = document.createElement('button');
           rightBtn.className = 'carousel-nav right';
           rightBtn.innerHTML = '>';
           rightBtn.onclick = () => {
-            wrapper.scrollBy({ left: 315, behavior: 'smooth' });
+            wrapper.scrollBy({ left: 320, behavior: 'smooth' });
           };
 
           title.textContent = "Beğenebileceğinizi düşündüklerimiz";
