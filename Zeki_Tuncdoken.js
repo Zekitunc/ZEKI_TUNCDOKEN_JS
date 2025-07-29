@@ -6,6 +6,8 @@
       self.setEvents();
     },
 
+
+    //favorilerin ekleme ve kaldırmaları
     setEvents: () => {
       document.addEventListener('click', function (e) {
         if (e.target.classList.contains('fav-btn')) {
@@ -25,6 +27,8 @@
       });
     },
 
+    //componentler çekilirken favori olan alınsın diye get isteği
+
     getFavs: () => {
       try {
         return JSON.parse(localStorage.getItem('favs')) || [];
@@ -32,6 +36,7 @@
         return [];
       }
     },
+    //yeni favori ekleme
 
     addFav: (id) => {
       const favs = self.getFavs();
@@ -40,7 +45,7 @@
         localStorage.setItem('favs', JSON.stringify(favs));
       }
     },
-
+    //favori çıkarma
     removeFav: (id) => {
       let favs = self.getFavs();
       favs = favs.filter(favId => favId !== id);
@@ -126,7 +131,7 @@
       .rating {
         color: #f5a623;
         font-size: 14px;
-        height:1vh;
+        height:auto;
         padding-top:2vh;
       }
       .product-price {
@@ -225,6 +230,8 @@
     },
 
     buildHTML: () => {
+
+      //4 ana parçadan oluşacak 
       const detailDiv = document.createElement('div');
       detailDiv.className = 'product-detail';
       document.body.appendChild(detailDiv);
@@ -239,6 +246,8 @@
       wrapper.className = 'carousel-wrapper';
 
       const render = (data) => {
+
+        //data ve favori bilgileri çekildi
         const favs = self.getFavs();
 
         data.forEach((product) => {
@@ -250,6 +259,7 @@
           fav.innerHTML = favs.includes(product.id.toString()) ? '🧡' : '🤍';
           fav.dataset.id = product.id;
 
+          //ürün resimleri yerleştirildikten sonra çok satan vb. etiketler eklendi. veride bulunmadığı için ikiside default ekli gözükecektir
           const badge = document.createElement('img');
           badge.className = 'badge';
           badge.src = "https://www.e-bebek.com/assets/images/cok-satan.png";
@@ -260,6 +270,7 @@
           badge2.src = "https://www.e-bebek.com/assets/images/yildiz-urun.png";
           card.appendChild(badge2);
 
+          //ürüne ait olan veriler bir card elementi içinde parça parça ekleniyor
           const img = document.createElement('img');
           img.src = product.img;
           img.alt = product.name;
@@ -277,6 +288,7 @@
           price.className = 'product-price';
           price.textContent = product.price.toFixed(2) + ' TL';
 
+          //indirimin olduğu ürünlere ekstradan bilgi girmemiz gerekmekte indirim oranı ve indirimsiz fiyatı gibi
           if (product.original_price > product.price) {
             const oldpriceDiv = document.createElement('div');
             oldpriceDiv.className = 'oldpriceAll';
@@ -298,6 +310,8 @@
             oldpriceDiv.appendChild(discountLogo);
             price.appendChild(oldpriceDiv);
           }
+
+          //sepete ekle butonu eklendi fakat işlevsel değildir
 
           const button = document.createElement('button');
           button.className = 'add-to-cart';
