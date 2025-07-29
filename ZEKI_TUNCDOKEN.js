@@ -79,29 +79,29 @@
           top: 35%;
           transform: translateY(-50%);
           z-index: 2;
-          background-color: rgba(175, 115, 5, 0.05);
+          background-color: rgba(175, 115, 5, 0.02);
           border: black;
           border-radius: 50%;
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
           font-size: 20px;
           cursor: pointer;
           box-shadow: 0 2px 5px rgba(0,0,0,0.2);
           color:orange;
         }
         .carousel-nav.left {
-          left: 10px;
+          left: 1%;
         }
         .carousel-nav.left:hover,
         .carousel-nav.right:hover {
           border: 2px solid orange;
         }
         .carousel-nav.right {
-          right: 10px;
+          right: 1%;
         }
         .product-card {
           position: relative;
-          width: 260px;
+          width: 265px;
           height: 54vh;
           border: 4px solid white;
           border-radius: 12px;
@@ -208,7 +208,7 @@
           background-color:orange;
         }
         .carousel-title {
-          background-color: rgba(248, 180, 53, 0.05);
+          background-color: rgba(248, 180, 53, 0.02);
           border: 1px solid gray;
           border-top-left-radius:40px;
           border-top-right-radius:40px;
@@ -332,14 +332,14 @@
           leftBtn.className = 'carousel-nav left';
           leftBtn.innerHTML = '<';
           leftBtn.onclick = () => {
-            wrapper.scrollBy({ left: -320, behavior: 'smooth' });
+            wrapper.scrollBy({ left: -310, behavior: 'smooth' });
           };
 
           const rightBtn = document.createElement('button');
           rightBtn.className = 'carousel-nav right';
           rightBtn.innerHTML = '>';
           rightBtn.onclick = () => {
-            wrapper.scrollBy({ left: 320, behavior: 'smooth' });
+            wrapper.scrollBy({ left: 310, behavior: 'smooth' });
           };
 
           title.textContent = "Beğenebileceğinizi düşündüklerimiz";
